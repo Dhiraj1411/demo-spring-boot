@@ -30,7 +30,6 @@ class ReadDataFile implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		try{
-//			Scanner input = new Scanner(new File("/Users/dhirajsingh/Desktop/Assignemnt/RBC/rbc/src/main/resources/dow_jones_index.data"));
 			Scanner input = new Scanner(new File("src/main/resources/dow_jones_index.data"));
 			List<StockEntity> stockEntityList = new ArrayList<>();
 			while(input.hasNextLine()){
@@ -46,7 +45,6 @@ class ReadDataFile implements CommandLineRunner {
 	}
 
 	private StockEntity dataMapper(String[] strArr){
-		//percent_return_next_dividend
 		StockEntity stockEntity = new StockEntity();
 		stockEntity.setQuarter(strArr[0]);
 		stockEntity.setStock(strArr[1]);
