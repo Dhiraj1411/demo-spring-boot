@@ -1,6 +1,7 @@
 package com.assessment.rbc.service;
 
 import com.assessment.rbc.dto.Stock;
+import com.assessment.rbc.exception.StockOperationException;
 import com.assessment.rbc.models.StockEntity;
 import com.assessment.rbc.repository.StockRepository;
 import org.springframework.stereotype.Service;
@@ -56,6 +57,8 @@ public class StockServiceImpl implements StockService {
                 for(StockEntity stockEntity  : optionalStockList.get()){
                     stockList.add(stockEntityToStockDtoMapper(stockEntity));
                 }
+            } else {
+                throw new StockOperationException(stock_param +" doesn't exist");
             }
         }catch(Exception ex){
             ex.printStackTrace();
