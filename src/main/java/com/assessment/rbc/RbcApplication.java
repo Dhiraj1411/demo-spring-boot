@@ -2,12 +2,16 @@ package com.assessment.rbc;
 
 import com.assessment.rbc.models.StockEntity;
 import com.assessment.rbc.repository.StockRepository;
+import jdk.jfr.internal.Utils;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -30,12 +34,15 @@ class ReadDataFile implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		try{
-			Scanner input = new Scanner(new File("src/main/resources/dow_jones_index.data"));
+			InputStream inputStream = getClass().getResourceAsStream("/dow_jones_index.data");
+			BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+			String line = reader.readLine();
 			List<StockEntity> stockEntityList = new ArrayList<>();
-			while(input.hasNextLine()){
-				String line = input.nextLine();
+			while(line != null){
+				System.out.println(line);
 				String[] str = line.split(",");
 				stockEntityList.add(dataMapper(str));
+				line = reader.readLine();
 			}
 			System.out.println(stockEntityList);
 			stockRepository.saveAll(stockEntityList);
