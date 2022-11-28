@@ -2,7 +2,6 @@ package com.assessment.rbc;
 
 import com.assessment.rbc.models.StockEntity;
 import com.assessment.rbc.repository.StockRepository;
-import jdk.jfr.internal.Utils;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
