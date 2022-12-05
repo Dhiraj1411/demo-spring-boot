@@ -2,18 +2,17 @@ package com.assessment.rbc;
 
 import com.assessment.rbc.models.StockEntity;
 import com.assessment.rbc.repository.StockRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 @SpringBootApplication
 public class RbcApplication {
@@ -24,8 +23,10 @@ public class RbcApplication {
 
 @Component
 class ReadDataFile implements CommandLineRunner {
+
 	private final StockRepository stockRepository;
 
+	@Autowired
 	public ReadDataFile(StockRepository stockRepository){
 		this.stockRepository = stockRepository;
 	}
@@ -38,7 +39,6 @@ class ReadDataFile implements CommandLineRunner {
 			String line = reader.readLine();
 			List<StockEntity> stockEntityList = new ArrayList<>();
 			while(line != null){
-				System.out.println(line);
 				String[] str = line.split(",");
 				stockEntityList.add(dataMapper(str));
 				line = reader.readLine();

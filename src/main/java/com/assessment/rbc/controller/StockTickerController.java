@@ -3,6 +3,7 @@ package com.assessment.rbc.controller;
 import com.assessment.rbc.dto.Stock;
 import com.assessment.rbc.service.StockService;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,8 @@ import java.util.Map;
 @RequestMapping("/api")
 public class StockTickerController {
     public final StockService stockService;
+
+    @Autowired
     public StockTickerController(StockService stockService){
         this.stockService = stockService;
     }

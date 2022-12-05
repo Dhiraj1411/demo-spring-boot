@@ -4,6 +4,7 @@ import com.assessment.rbc.dto.Stock;
 import com.assessment.rbc.exception.StockOperationException;
 import com.assessment.rbc.models.StockEntity;
 import com.assessment.rbc.repository.StockRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import java.util.Optional;
 public class StockServiceImpl implements StockService {
     public final StockRepository stockRepository;
 
+    @Autowired
     public StockServiceImpl(StockRepository stockRepository) {
         this.stockRepository = stockRepository;
     }
