@@ -8,10 +8,7 @@ spring:
     username: ${MYSQL_USER:root}
     password: ${MYSQL_PASSWORD:root}
     driver-class-name: com.mysql.cj.jdbc.Driver
-  #    username: sa
-#    password: password
   jpa:
-#    database-platform: org.hibernate.dialect.H2Dialect
     show-sql: true
     properties:
       hibernate:
