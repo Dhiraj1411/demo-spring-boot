@@ -1,4 +1,4 @@
 FROM openjdk:8
-ADD target/rbc-1.0.0.jar rbc-1.0.0.jar
+ADD target/demo-1.0.0.jar demo-1.0.0.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar" , "rbc-1.0.0.jar"]
+ENTRYPOINT ["java", "-jar" , "demo-1.0.0.jar"]

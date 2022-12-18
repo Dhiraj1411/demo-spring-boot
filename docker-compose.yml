@@ -13,6 +13,9 @@ services:
       MYSQL_USER: "root"
       MYSQL_PASSWORD: "root"
       MYSQL_PORT: 3306
+    deploy:
+      restart_policy:
+        condition: on-failure
 
   mysql-database:
     container_name: "mysql-database"
